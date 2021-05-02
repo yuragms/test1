@@ -330,18 +330,20 @@ const num2 = 10;
 
 //console.log(x.indexOf("b"));
 
-function makeArray(firstArray, secondArray, maxLength) {
+
+function includes(array, value) {
   // Пиши код ниже этой строки
-  const newarray = firstArray.concat(secondArray);
-  const longarray = newarray.length;
-  if (longarray > maxLength) {
-    console.log(newarray.slice(0,maxLength));
-  }
-else {
-  console.log(newarray);
-}
+  let x = false;
+for (let arg of array) {
+if ( arg === value) {
+ x = true;
+ break
+} 
+x = false; 
   
+}
+ 
+  console.log(x);
   // Пиши код выше этой строки
 }
-makeArray(['Манго', 'Поли', 'Хьюстон'], ['Аякс', 'Челси'], 4)
-
+includes([1, 2, 3, 4, 5], 17)
