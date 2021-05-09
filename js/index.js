@@ -331,19 +331,102 @@ const num2 = 10;
 //console.log(x.indexOf("b"));
 
 
-function includes(array, value) {
+
+const atTheOldToad = {
+  potions: [
+    { name: 'Зелье скорости', price: 460 },
+    { name: 'Дыхание дракона', price: 780 },
+    { name: 'Каменная кожа', price: 520 },
+  ],
   // Пиши код ниже этой строки
-  let x = false;
-for (let arg of array) {
-if ( arg === value) {
- x = true;
- break
-} 
-x = false; 
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(potionName) {
+    if (this.potions.includes(potionName)) {
+      return `Зелье ${potionName} уже есть в инвентаре!`;
+    }
+
+    this.potions.push(potionName);
+  },
+  removePotion(potionName) {
+    const arrayname =[];
+for (const arg of this.potions) {
+  arrayname.push(arg.name);
+}
+console.log(arrayname);
   
+
+
+    if (arrayname.includes(potionName)) {
+      
+      for (i=0; i < this.potions.length; i++)
+{
+  if (this.potions[i].name === potionName)
+   {
+  //console.log(this.potions[i]);
+  //console.log(i);
+  this.potions.splice(i, 1);
 }
- 
-  console.log(x);
+} 
+    }
+    
+    else {
+      console.log(`Зелья ${potionName} нет в инвентаре!`);
+      return `Зелья ${potionName} нет в инвентаре!`;
+    }
+  },
+
+
+
+
+  updatePotionName(oldName, newName) {
+
+    const arrayname =[];
+    for (const arg of this.potions) {
+      arrayname.push(arg.name);
+    }
+    console.log(arrayname);
+      
+    
+    
+        if (arrayname.includes(oldName)) {
+          
+          for (i=0; i < this.potions.length; i++)
+    {
+      if (this.potions[i].name === oldName)
+       {
+      console.log(this.potions[i]);
+      console.log(i);
+      this.potions[i].name = newName;
+      //this.potions.splice(i, 1, newName);
+      console.log(this.potions[i]);
+    }
+    } 
+        }
+        
+        else {
+          console.log(`Зелья ${oldName} нет в инвентаре!`);
+          return `Зелья ${oldName} нет в инвентаре!`;
+        }
+
+
+
+
+
+
+
+    const potionIndex = this.potions.indexOf(oldName);
+
+    if (potionIndex === -1) {
+      return `Зелья ${oldName} нет в инвентаре!`;
+    }
+
+    this.potions.splice(potionIndex, 1, newName);
+  },
   // Пиши код выше этой строки
-}
-includes([1, 2, 3, 4, 5], 17)
+};
+
+
+atTheOldToad.updatePotionName('Дыхание дракона', 'Полиморф')
+
